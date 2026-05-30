@@ -1,6 +1,5 @@
 import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-import { BlurView } from 'expo-blur';
+import { StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
@@ -25,16 +24,7 @@ const ICONS: Record<keyof AppTabsParamList, keyof typeof Ionicons.glyphMap> = {
 };
 
 function TabBarBackground() {
-  if (Platform.OS === 'ios') {
-    return (
-      <BlurView
-        intensity={50}
-        tint="dark"
-        style={[StyleSheet.absoluteFillObject, styles.blurBg]}
-      />
-    );
-  }
-  return <View style={[StyleSheet.absoluteFillObject, styles.androidBg]} />;
+  return <View style={[StyleSheet.absoluteFillObject, styles.tabBg]} />;
 }
 
 export default function AppTabs() {
@@ -108,12 +98,7 @@ export default function AppTabs() {
 }
 
 const styles = StyleSheet.create({
-  blurBg: {
-    borderRadius: 24,
-    overflow: 'hidden',
-    backgroundColor: 'rgba(11,20,55,0.55)',
-  },
-  androidBg: {
+  tabBg: {
     borderRadius: 24,
     backgroundColor: 'rgba(20,27,69,0.92)',
   },
