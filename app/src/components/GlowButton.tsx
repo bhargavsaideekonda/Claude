@@ -8,7 +8,6 @@ import {
   ViewStyle,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import * as Haptics from 'expo-haptics';
 import { colors, gradients, GradientName } from '@/theme/colors';
 import { typography } from '@/theme/typography';
 
@@ -24,7 +23,7 @@ interface Props {
 }
 
 /**
- * Primary CTA — gradient fill, soft outer glow, haptic tap.
+ * Primary CTA — gradient fill with a soft outer glow.
  */
 export default function GlowButton({
   label,
@@ -38,7 +37,6 @@ export default function GlowButton({
 }: Props) {
   const handlePress = () => {
     if (disabled || loading) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
     onPress?.();
   };
 
