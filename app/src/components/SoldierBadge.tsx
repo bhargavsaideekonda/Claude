@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, {
   Easing,
@@ -19,8 +19,9 @@ interface Props {
 }
 
 /**
- * The hero element — a slowly rotating gradient ring around the society logo.
- * Tries to render assets/logo.png; falls back to a stylised "P" monogram.
+ * Hero element — slowly rotating gradient ring around a stylised "P · MACS"
+ * monogram. To use the real society logo later, save it as
+ * `assets/logo.png` and replace the inner View with <Image source={require(...)}/>
  */
 export default function SoldierBadge({
   size = 180,
@@ -45,19 +46,18 @@ export default function SoldierBadge({
   const ringSize = size;
   const innerSize = size - 18;
 
-  // We don't bundle the logo image — it's added by the user at assets/logo.png.
-  // require() is inside try/catch via a safe wrapper.
-  let logoSource: number | null = null;
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    logoSource = require('../../assets/logo.png');
-  } catch {
-    logoSource = null;
-  }
-
   return (
     <View style={[styles.wrap, { width: ringSize + 24, height: ringSize + 24 }]}>
-      <View style={[styles.outerGlow, { width: ringSize + 60, height: ringSize + 60, borderRadius: (ringSize + 60) / 2 }]} />
+      <View
+        style={[
+          styles.outerGlow,
+          {
+            width: ringSize + 60,
+            height: ringSize + 60,
+            borderRadius: (ringSize + 60) / 2,
+          },
+        ]}
+      />
       <Animated.View
         style={[
           styles.ring,
@@ -78,18 +78,10 @@ export default function SoldierBadge({
           { width: innerSize, height: innerSize, borderRadius: innerSize / 2 },
         ]}
       >
-        {logoSource ? (
-          <Image
-            source={logoSource}
-            style={{ width: innerSize - 14, height: innerSize - 14, borderRadius: (innerSize - 14) / 2 }}
-            resizeMode="cover"
-          />
-        ) : (
-          <View style={styles.fallback}>
-            <Text style={styles.fallbackP}>P</Text>
-            <Text style={styles.fallbackSub}>MACS</Text>
-          </View>
-        )}
+        <View style={styles.fallback}>
+          <Text style={styles.fallbackP}>P</Text>
+          <Text style={styles.fallbackSub}>MACS</Text>
+        </View>
       </View>
       {label && <Text style={styles.label}>{label}</Text>}
     </View>
