@@ -78,19 +78,17 @@ export default function LoginScreen() {
           <div className="caption center muted">{t('auth.termsHint')}</div>
         </div>
 
-        {/* Demo credentials so you and your dad can try it right away */}
+        {/* Helper note — no credentials shown for security */}
         <div className="fade-in d4 mt-lg">
           <GlassCard tint="orange" padding={16}>
             <div className="row gap-sm" style={{ alignItems: 'center', marginBottom: 8 }}>
-              <Icon name="star" size={16} color="var(--orange)" />
+              <Icon name="shield" size={16} color="var(--orange)" />
               <span className="caption" style={{ color: 'var(--orange)', fontWeight: 700, letterSpacing: 1 }}>
-                {t('auth.demoTitle')}
+                {t('auth.helpTitle')}
               </span>
             </div>
-            <div className="caption" style={{ lineHeight: 1.8 }}>
-              <strong style={{ color: 'var(--text-primary)' }}>Captain:</strong> 9876543210 · PIN 1234
-              <br />
-              <strong style={{ color: 'var(--text-primary)' }}>Soldier:</strong> 9123456780 · PIN 1111
+            <div className="caption" style={{ lineHeight: 1.7 }}>
+              {t('auth.helpBody')}
             </div>
           </GlassCard>
         </div>

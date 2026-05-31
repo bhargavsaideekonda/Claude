@@ -28,7 +28,8 @@
     "pinLabel": "4-digit PIN",
     "invalidPin": "Wrong PIN. Try again, soldier.",
     "signIn": "Sign in",
-    "demoTitle": "DEMO LOGINS",
+    "helpTitle": "NEED ACCESS?",
+    "helpBody": "Only registered staff can sign in. Contact an admin to be enlisted or to reset your PIN.",
     "verify": "Verify & enter",
     "resend": "Resend code",
     "termsHint": "By continuing, you accept the society's code of conduct."

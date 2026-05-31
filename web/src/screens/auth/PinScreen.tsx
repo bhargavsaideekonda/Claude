@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import GradientBackground from '@/components/GradientBackground';
@@ -15,42 +15,39 @@ export default function PinScreen() {
   const pendingPhone = useAuthStore((s) => s.pendingPhone);
   const login = useAuthStore((s) => s.login);
 
-  const [digits, setDigits] = useState<string[]>(Array(LEN).fill(''));
+  const [pin, setPin] = useState('');
   const [error, setError] = useState(false);
-  const inputs = useRef<Array<HTMLInputElement | null>>([]);
+  const hiddenInput = useRef<HTMLInputElement | null>(null);
+
+  // Focus the (invisible) input so the keyboard opens immediately.
+  useEffect(() => {
+    hiddenInput.current?.focus();
+  }, []);
 
   // If the user lands here without a phone (e.g. page refresh), go back to login.
   if (!pendingPhone) {
     return <Navigate to="/login" replace />;
   }
 
-  const code = digits.join('');
-  const complete = code.length === LEN;
+  const complete = pin.length === LEN;
 
-  const setAt = (i: number, v: string) => {
-    const c = v.replace(/\D/g, '').slice(0, 1);
-    setDigits((prev) => {
-      const next = [...prev];
-      next[i] = c;
-      return next;
-    });
-    if (c && i < LEN - 1) inputs.current[i + 1]?.focus();
-  };
-
-  const onKeyDown = (i: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace' && !digits[i] && i > 0) inputs.current[i - 1]?.focus();
-    if (e.key === 'Enter' && complete) handleLogin();
-  };
-
-  const handleLogin = () => {
+  const handleLogin = (code: string = pin) => {
     const ok = login(code);
     if (!ok) {
       setError(true);
-      setDigits(Array(LEN).fill(''));
-      inputs.current[0]?.focus();
+      setPin('');
+      hiddenInput.current?.focus();
       return;
     }
     navigate('/home', { replace: true });
+  };
+
+  const onChange = (raw: string) => {
+    const next = raw.replace(/\D/g, '').slice(0, LEN);
+    setError(false);
+    setPin(next);
+    // Auto-submit the moment all 4 digits are entered.
+    if (next.length === LEN) handleLogin(next);
   };
 
   return (
@@ -72,29 +69,38 @@ export default function PinScreen() {
 
         <div className="fade-in d2 mt-lg">
           <GlassCard tint="pink" padding={22}>
-            <div className="caption center" style={{ marginBottom: 12 }}>
+            <div className="caption center" style={{ marginBottom: 14 }}>
               {t('auth.pinLabel')}
             </div>
-            <div className="otp-row" style={{ justifyContent: 'center', maxWidth: 280, margin: '0 auto' }}>
-              {digits.map((d, i) => (
-                <input
-                  key={i}
-                  ref={(el) => (inputs.current[i] = el)}
-                  className={`otp-box ${d ? 'filled' : ''}`}
-                  inputMode="numeric"
-                  type="password"
-                  maxLength={1}
-                  value={d}
-                  onChange={(e) => {
-                    setError(false);
-                    setAt(i, e.target.value);
-                  }}
-                  onKeyDown={(e) => onKeyDown(i, e)}
-                />
+
+            {/* Tapping the dots focuses the single hidden input. This is far
+                more reliable on mobile keyboards than 4 separate boxes. */}
+            <label
+              htmlFor="pin-field"
+              className="otp-row"
+              style={{ justifyContent: 'center', gap: 14, cursor: 'text' }}
+            >
+              {Array.from({ length: LEN }).map((_, i) => (
+                <span key={i} className={`pin-dot ${i < pin.length ? 'filled' : ''}`}>
+                  {i < pin.length ? '•' : ''}
+                </span>
               ))}
-            </div>
+            </label>
+
+            <input
+              id="pin-field"
+              ref={hiddenInput}
+              className="pin-hidden-input"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              type="tel"
+              value={pin}
+              onChange={(e) => onChange(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && complete && handleLogin()}
+            />
+
             {error && (
-              <div className="caption center" style={{ color: 'var(--danger)', marginTop: 10 }}>
+              <div className="caption center" style={{ color: 'var(--danger)', marginTop: 14 }}>
                 {t('auth.invalidPin')}
               </div>
             )}
@@ -104,7 +110,7 @@ export default function PinScreen() {
         <div className="col gap fade-in d3 mt-lg">
           <GlowButton
             label={t('auth.signIn')}
-            onClick={handleLogin}
+            onClick={() => handleLogin()}
             disabled={!complete}
             icon={<Icon name="shield" size={18} />}
           />
