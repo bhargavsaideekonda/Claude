@@ -3,7 +3,6 @@ name: Deploy web app to GitHub Pages
 on:
   push:
     branches:
-      - palnadu-macs-soldiers-web
       - main
   workflow_dispatch: {}
 
