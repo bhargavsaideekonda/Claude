@@ -4,7 +4,7 @@ import { useAuthStore } from '@/store/authStore';
 
 import SplashScreen from '@/screens/auth/SplashScreen';
 import LoginScreen from '@/screens/auth/LoginScreen';
-import OtpScreen from '@/screens/auth/OtpScreen';
+import PinScreen from '@/screens/auth/PinScreen';
 import AppShell from '@/screens/AppShell';
 
 import DashboardScreen from '@/screens/DashboardScreen';
@@ -30,7 +30,7 @@ export default function App() {
         {/* Auth */}
         <Route path="/" element={<SplashScreen />} />
         <Route path="/login" element={<LoginScreen />} />
-        <Route path="/otp" element={<OtpScreen />} />
+        <Route path="/pin" element={<PinScreen />} />
 
         {/* Authenticated app with bottom tab shell */}
         <Route
