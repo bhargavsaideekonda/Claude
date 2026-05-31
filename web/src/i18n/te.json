@@ -1,0 +1,86 @@
+{
+  "app": {
+    "name": "పల్నాడు MACS సోల్జర్స్",
+    "society": "పల్నాడు మ్యూచువల్లీ ఎయిడెడ్ కో-ఆపరేటివ్ సొసైటీ లిమిటెడ్",
+    "tagline": "సొసైటీ యొక్క సైనికులు",
+    "motto": "సభ్యుల సేవ. సమాజ బలోపేతం."
+  },
+  "common": {
+    "continue": "కొనసాగించు",
+    "comingSoon": "త్వరలో వస్తోంది, సైనికుడా",
+    "comingSoonHint": "ఈ విభాగం విధి కోసం సిద్ధం అవుతోంది.",
+    "language": "భాష",
+    "logout": "లాగ్ అవుట్",
+    "back": "వెనుకకు"
+  },
+  "auth": {
+    "splashWelcome": "స్వాగతం, సైనికుడా",
+    "splashSubtitle": "పల్నాడు MACS లో విధికి హాజరు",
+    "loginTitle": "విధికి లాగిన్ అవ్వండి",
+    "loginSubtitle": "OTP పొందడానికి మీ నమోదిత ఫోన్ నంబర్ నమోదు చేయండి.",
+    "phoneLabel": "ఫోన్ నంబర్",
+    "phonePlaceholder": "10 అంకెల మొబైల్ నంబర్",
+    "sendOtp": "OTP పంపండి",
+    "otpTitle": "OTP ధృవీకరించండి",
+    "otpSubtitle": "{{phone}} కు 6-అంకెల కోడ్ పంపాము",
+    "otpLabel": "OTP నమోదు చేయండి",
+    "otpHint": "డెమో: కొనసాగించడానికి ఏదైనా 6 అంకెలు నమోదు చేయండి.",
+    "verify": "ధృవీకరించి ప్రవేశించండి",
+    "resend": "కోడ్ మళ్లీ పంపు",
+    "termsHint": "కొనసాగించడం ద్వారా, మీరు సొసైటీ నియమాలను అంగీకరిస్తారు."
+  },
+  "tabs": {
+    "dashboard": "హోమ్",
+    "members": "సభ్యులు",
+    "collections": "వసూలు",
+    "loans": "రుణాలు",
+    "more": "మరిన్ని"
+  },
+  "dashboard": {
+    "greetingMorning": "శుభోదయం",
+    "greetingAfternoon": "శుభ మధ్యాహ్నం",
+    "greetingEvening": "శుభ సాయంత్రం",
+    "stats": {
+      "members": "సభ్యులు",
+      "collectionToday": "నేటి వసూలు",
+      "pendingLoans": "పెండింగ్ రుణాలు",
+      "attendance": "హాజరు"
+    },
+    "onDuty": "విధిలో",
+    "inSince": "09:12 నుండి",
+    "quickActions": "విధి కేంద్రాలు",
+    "recentActivity": "ఇటీవలి కార్యకలాపాలు"
+  },
+  "members": {
+    "title": "సభ్యులు",
+    "subtitle": "ప్రతి సైనికుడు ప్రతి సభ్యుడిని కాపాడతాడు.",
+    "addMember": "సభ్యుడిని చేర్చు"
+  },
+  "collections": {
+    "title": "వసూళ్లు",
+    "subtitle": "క్షేత్రం నుండి రోజువారీ డిపాజిట్లు.",
+    "newCollection": "కొత్త వసూలు"
+  },
+  "loans": {
+    "title": "రుణాలు",
+    "subtitle": "ఆమోదించు, పర్యవేక్షించు, సేవ చేయి.",
+    "newLoan": "కొత్త రుణం"
+  },
+  "reports": { "title": "నివేదికలు", "subtitle": "సంఖ్యలు సత్యాన్ని చెబుతాయి." },
+  "announcements": { "title": "ప్రకటనలు", "subtitle": "ప్రధాన కార్యాలయం నుండి ఆదేశాలు." },
+  "attendance": {
+    "title": "హాజరు",
+    "subtitle": "మీ విధిని గుర్తించండి.",
+    "checkIn": "చెక్ ఇన్",
+    "checkOut": "చెక్ అవుట్"
+  },
+  "profile": {
+    "title": "ప్రొఫైల్",
+    "subtitle": "మీ సేవా రికార్డు.",
+    "rankSoldier": "ఫీల్డ్ సైనికుడు",
+    "languageEnglish": "English",
+    "languageTelugu": "తెలుగు (Telugu)",
+    "version": "వెర్షన్"
+  },
+  "more": { "title": "మరిన్ని" }
+}

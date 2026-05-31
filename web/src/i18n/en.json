@@ -1,0 +1,86 @@
+{
+  "app": {
+    "name": "Palnadu MACS Soldiers",
+    "society": "Palnadu Mutually Aided Co-operative Society Ltd.",
+    "tagline": "Soldiers of the Society",
+    "motto": "Serving members. Strengthening community."
+  },
+  "common": {
+    "continue": "Continue",
+    "comingSoon": "Coming soon, soldier",
+    "comingSoonHint": "This module is being prepared for deployment.",
+    "language": "Language",
+    "logout": "Logout",
+    "back": "Back"
+  },
+  "auth": {
+    "splashWelcome": "Welcome, Soldier",
+    "splashSubtitle": "Reporting for duty at Palnadu MACS",
+    "loginTitle": "Sign in to duty",
+    "loginSubtitle": "Enter your registered phone number to receive a one-time password.",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "10-digit mobile number",
+    "sendOtp": "Send OTP",
+    "otpTitle": "Verify OTP",
+    "otpSubtitle": "We sent a 6-digit code to {{phone}}",
+    "otpLabel": "Enter OTP",
+    "otpHint": "Demo: enter any 6 digits to continue.",
+    "verify": "Verify & enter",
+    "resend": "Resend code",
+    "termsHint": "By continuing, you accept the society's code of conduct."
+  },
+  "tabs": {
+    "dashboard": "Home",
+    "members": "Members",
+    "collections": "Collect",
+    "loans": "Loans",
+    "more": "More"
+  },
+  "dashboard": {
+    "greetingMorning": "Good morning",
+    "greetingAfternoon": "Good afternoon",
+    "greetingEvening": "Good evening",
+    "stats": {
+      "members": "Members",
+      "collectionToday": "Today's collection",
+      "pendingLoans": "Pending loans",
+      "attendance": "Attendance"
+    },
+    "onDuty": "On duty",
+    "inSince": "In since 09:12",
+    "quickActions": "Battle stations",
+    "recentActivity": "Recent activity"
+  },
+  "members": {
+    "title": "Members",
+    "subtitle": "Every soldier protects every member.",
+    "addMember": "Enlist member"
+  },
+  "collections": {
+    "title": "Collections",
+    "subtitle": "Daily deposits from the field.",
+    "newCollection": "New collection"
+  },
+  "loans": {
+    "title": "Loans",
+    "subtitle": "Approve, track and serve.",
+    "newLoan": "New loan"
+  },
+  "reports": { "title": "Reports", "subtitle": "Numbers tell the truth." },
+  "announcements": { "title": "Announcements", "subtitle": "Orders from headquarters." },
+  "attendance": {
+    "title": "Attendance",
+    "subtitle": "Mark your duty.",
+    "checkIn": "Check in",
+    "checkOut": "Check out"
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Your service record.",
+    "rankSoldier": "Field Soldier",
+    "languageEnglish": "English",
+    "languageTelugu": "తెలుగు (Telugu)",
+    "version": "Version"
+  },
+  "more": { "title": "More" }
+}
